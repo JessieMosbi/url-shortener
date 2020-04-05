@@ -1,0 +1,19 @@
+<h1 class="text-center">URL Shortener</h1>
+<form action="/" method="POST">
+  <div class="form-group">
+    {{#if url}}
+      <h2>Success! Please use this link:</h2>
+      {{{url}}}
+    {{else}}
+      <input type="text" class="form-control" id="url" name="url" placeholder="input URL here">
+    {{/if}}
+  </div>
+  <div class="text-center">
+    {{#if url}}
+      <button type="button" class="btn btn-primary">Copy</button>
+      <a href="/"><button type="button" class="btn btn-primary">Try another one</button></a>
+    {{else}}
+      <button type="submit" class="btn btn-outline-primary">Shorten</button>
+    {{/if}}
+  </div>
+</form>

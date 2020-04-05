@@ -9,7 +9,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // route
 app.get('/', (req, res) => {
-  res.send('index')
+  res.render('index')
+})
+
+app.post('/', (req, res) => {
+  res.send('縮短網址')
 })
 
 app.listen(3000, () => {
