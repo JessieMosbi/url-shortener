@@ -13,9 +13,10 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  res.send('縮短網址')
+  const randomChar = Math.random().toString(36).slice(-5)
+  res.render('index', { url: `${req.headers.origin}/${randomChar}` })
 })
 
 app.listen(3000, () => {
-  console.log(`Server listen to port 3000`)
+  console.log('Server listen to port 3000')
 })
