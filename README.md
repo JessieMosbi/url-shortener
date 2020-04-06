@@ -1,7 +1,7 @@
 # URL-Shortener
 這是一個簡易短網址服務，使用 [Node.js](https://nodejs.org/en/)、[Express](https://expressjs.com/)、[mongodb](https://www.mongodb.com/)
 
-![scrrenshot]()
+![scrrenshot](https://github.com/JessieMosbi/url-shortener/blob/master/screenshot.png?raw=true)
 
 ## Requirement
 [Node.js](https://nodejs.org/en/)   
