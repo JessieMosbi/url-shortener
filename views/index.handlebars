@@ -4,16 +4,41 @@
     {{#if url}}
       <h2>{{{message}}}</h2>
       {{{url}}}
+      <input type="hidden" id="url" value="{{{url}}}">
     {{else}}
       <input type="url" class="form-control" id="url" name="url" placeholder="input URL here">
     {{/if}}
   </div>
   <div class="text-center">
     {{#if url}}
-      <button type="button" class="btn btn-primary">Copy</button>
+      <button type="button" class="btn btn-primary" id="copy-btn" onclick="copyText()" data-toggle="tooltip"
+        data-placement="top" title="Click to copy">Copy</button>
       <a href="/"><button type="button" class="btn btn-primary">Try another one</button></a>
     {{else}}
       <button type="submit" class="btn btn-outline-primary">Shorten</button>
     {{/if}}
   </div>
 </form>
+
+{{#if url}}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+      $('#copy-btn').on('hidden.bs.tooltip', function () {
+        $('#copy-btn').attr('data-original-title', 'Click to copy')
+      })
+    })
+    function copyText() {
+      const url = document.querySelector('#url')
+      url.setAttribute('type', 'text')
+      url.select() // 進行選取
+      document.execCommand('copy') // 將選取到的內容複製到剪貼簿
+      $('#copy-btn').attr('data-original-title', 'copied!')
+      $('#copy-btn').tooltip('show')
+
+      // recover
+      url.setAttribute('type', 'hidden')
+    }
+  </script>
+{{/if}}
