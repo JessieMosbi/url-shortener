@@ -6,6 +6,7 @@
       {{{url}}}
       <input type="hidden" id="url" value="{{{url}}}">
     {{else}}
+      {{!-- *** 若使用者沒有輸入內容，就按下了送出鈕，需要防止表單送出並提示使用者 *** --}}
       <input type="url" class="form-control" id="url" name="url" placeholder="input URL here" required="required">
     {{/if}}
   </div>

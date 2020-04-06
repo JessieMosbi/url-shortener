@@ -39,7 +39,7 @@ app.get('/:shortChar', (req, res) => {
 
 app.post('/', (req, res) => {
   const { url } = req.body
-  // 檢查有無此 url 的縮寫
+  // ** 若需要防止有重覆的網址組合出現 **
   Url.findOne({ url })
     .then((data) => {
       if (data) {
