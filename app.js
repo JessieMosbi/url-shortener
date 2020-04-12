@@ -33,6 +33,7 @@ app.get('/:shortChar', (req, res) => {
   Url.findOne({ short: req.params.shortChar })
     .then((data) => {
       if (data) return res.redirect(data.url)
+      else return res.render('error')
     })
     .catch((err) => console.log(err))
 })
@@ -60,6 +61,10 @@ app.post('/', (req, res) => {
           })
       }
     })
+})
+
+app.get('*', (req, res) => {
+  res.render('error')
 })
 
 app.listen(process.env.PORT || 3000, () => {
